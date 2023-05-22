@@ -1,7 +1,10 @@
 import 'package:arabica_armour_mobile/lib.dart';
+import 'package:arabica_armour_mobile/presentation/About/feedback.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
+import 'presentation/About/about.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +31,7 @@ class ArabicaArmour extends StatelessWidget {
     GoRoute(
       path: '/',
       name: 'main',
-      builder: (context, state) => const Footer2(),
+      builder: (context, state) => const FeedBack(),
       // routes: <RouteBase>[
       //   GoRoute(
       //     path: '/camera',

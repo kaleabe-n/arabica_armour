@@ -5,10 +5,10 @@ AppBar getAppBar() {
     toolbarHeight: 60,
     backgroundColor: Colors.white,
     elevation: 0,
-    // leading: const Padding(
-    //   padding: EdgeInsets.fromLTRB(6, 1, 0, 0),
-    //   child: Image(image: AssetImage('assets/leaflogo.png')),
-    // ),
+    leading: const Padding(
+      padding: EdgeInsets.fromLTRB(6, 1, 0, 0),
+      child: Image(image: AssetImage('assets/leaflogo.png')),
+    ),
     title: const Text(
       "Arebica Armour",
       style: TextStyle(

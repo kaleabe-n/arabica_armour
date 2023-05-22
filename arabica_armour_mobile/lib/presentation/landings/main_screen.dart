@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
 // import 'package:flutter/src/widgets/framework.dart';
 // import 'package:flutter/src/widgets/placeholder.dart';
+// import 'package:flutter/src/widgets/framework.dart';
+// import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:image_picker/image_picker.dart';
 // import 'package:my_task/footers/chat.dart';
 // import 'package:my_task/footers/dashboard.dart';
 // import 'package:my_task/footers/profile.dart';
@@ -28,18 +32,31 @@ class _Footer2State extends State<Footer2> {
 
   Widget currentScreen = RecentPage();
 
+  File? _image;
+
+  final imagePicker = ImagePicker();
+
+  Future<void> getImage() async {
+    final image = await imagePicker.getImage(source: ImageSource.camera);
+
+    setState(() {
+      print(image?.path);
+      _image = image?.path != null ? File(image!.path) : null;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, _) => Scaffold(
         body: PageStorage(bucket: bucket, child: currentScreen),
         appBar: getAppBar(),
-        drawer: Drawer(backgroundColor: Colors.black,),
+        drawer: Drawer(
+          backgroundColor: Colors.black,
+        ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.green,
-          onPressed: () {
-            context.go('/main');
-          },
+          onPressed: getImage,
           child: Icon(Icons.camera),
         ),
         floatingActionButtonLocation:
